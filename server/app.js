@@ -4,27 +4,7 @@ const mongoose = require('mongoose');
 const app = express()
 mongoose.set('strictQuery', true);
 app.use(express.json())
-const port = 3000;
-
-
-//connecting to the database
-// pass // b1bjAkJtrOrPI1LY
-mongoose.connect("mongodb+srv://swapneeth:b1bjAkJtrOrPI1LY@postass.bcc0r5m.mongodb.net/?retryWrites=true&w=majority",{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(app.listen(port, ()=>console.log("Connected!!")))
-.catch(error=>console.log(error))
-
-// Routes
-
-app.get('/getAllMovies', getAllTasks)
-
-app.post('/addNewMovie', createUser)
-
-// app.patch('/editMovie/:id', updateTask)
-
-app.delete('/deleteMovie', deleteTask)
-
+const port = 5000;
 
 // Create Movie
 
@@ -60,3 +40,22 @@ const createUser = async (req,res)=>{
      }
  }
 
+
+// Routes
+
+app.get('/getAllMovies', getAllTasks)
+
+app.post('/addNewMovie', createUser)
+
+// app.patch('/editMovie/:id', updateTask)
+
+app.delete('/deleteMovie', deleteTask)
+
+
+//connecting to the database
+// pass // b1bjAkJtrOrPI1LY
+mongoose.connect("mongodb+srv://swapneeth:b1bjAkJtrOrPI1LY@postass.bcc0r5m.mongodb.net/?retryWrites=true&w=majority",{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }).then(app.listen(port, ()=>console.log("Connected!!")))
+.catch(error=>console.log(error))
